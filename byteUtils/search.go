@@ -34,3 +34,19 @@ func SplitByByte(b byte, bytes []byte) [][]byte  {
 	}
 	return bList
 }
+
+func ConcatenateByByte(b byte, bytesArray [][]byte) []byte {
+	if bytesArray == nil || len(bytesArray) == 0 {
+		return nil
+	}
+	var c []byte
+	for _, v := range bytesArray {
+		c = append(c, v...)
+		c = append(c, b)
+	}
+	if len(c)>0 {
+		return c[:len(c)-1]
+	}else{
+		return nil
+	}
+}
